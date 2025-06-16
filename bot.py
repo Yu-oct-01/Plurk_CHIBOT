@@ -11,8 +11,8 @@ from plurk_oauth import PlurkAPI
 # 以下請替換成自己的值！
 friend_list = []
 headers = {'x-api-key': '{$$.env.x-api-key}'}
-plurk = PlurkAPI('FG6x9NqCjGeG', 'B1E45YUUMRIZ0szXBgPyLzn6HApKhdBC')
-plurk.authorize('QySET4EwdtOF', 'nPFQoMIFuVIo2qnFWUfrWuKgOxASoqAK')
+plurk = PlurkAPI('APP_KEY', 'APP_SECRET')
+plurk.authorize('ACCEESS_TOKEN', 'ACCESS_TOKEN_SECRET')
 
 random_list = [ "今天過得開心嗎(p-rock)", "讚讚 [emo10]", "棒棒地[emo9]"]
 comet = plurk.callAPI('/APP/Realtime/getUserChannel')
@@ -21,7 +21,7 @@ jsonp_re = re.compile('CometChannel.scriptCallback\((.+)\);\s*');
 new_offset = -1
 
 def auth():
-    plurk.authorize('QySET4EwdtOF', 'nPFQoMIFuVIo2qnFWUfrWuKgOxASoqAK')
+    plurk.authorize('ACCEESS_TOKEN', 'ACCESS_TOKEN_SECRET')
     time.sleep(0.1)
     comet = plurk.callAPI('/APP/Realtime/getUserChannel')
     try:
@@ -105,7 +105,7 @@ while True:
     new_offset = data.get('new_offset', -1)
     msgs = data.get('data')
     responseMentioned()
-    print("CHI bot is working!")
+    print("Seal bot is working!")
     if not msgs:
         continue
     for msg in msgs:
