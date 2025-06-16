@@ -21,7 +21,7 @@ jsonp_re = re.compile('CometChannel.scriptCallback\((.+)\);\s*');
 new_offset = -1
 
 def auth():
-    plurk.authorize('ACCEESS_TOKEN', 'ACCESS_TOKEN_SECRET')
+    plurk.authorize('QySET4EwdtOF', 'nPFQoMIFuVIo2qnFWUfrWuKgOxASoqAK')
     time.sleep(0.1)
     comet = plurk.callAPI('/APP/Realtime/getUserChannel')
     try:
@@ -105,7 +105,7 @@ while True:
     new_offset = data.get('new_offset', -1)
     msgs = data.get('data')
     responseMentioned()
-    print("Seal bot is working!")
+    print("CHI bot is working!")
     if not msgs:
         continue
     for msg in msgs:
